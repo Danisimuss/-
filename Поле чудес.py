@@ -6,6 +6,7 @@ print(" " * 26 + "АВТОР ИГРЫ - ДАНИСИМУС")
 print(" " * 26 + "УЗНАТЬ СПИСОК КОМАНД - !список команд")
 bukvi = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" #алфавит
 popitki = 1 #попытки
+bukvi_vvod = [] #введённые буквы
 spisok = ["лицензия", "ординатура", "юриспруденция", "водонагреватель", "доброжелательность", "религиовед", "вероисповедование", "гастарбайтер", "достопримечательность", "человеконенавистничество", "автостеклоподъемники", "конфорка", "якубович"] #список слов
 random_slovo = list(random.choice(spisok)) #загаданное слово
 zvezdi = list("*" * len(random_slovo)) #зашифрованное слово
@@ -17,7 +18,7 @@ while True: #Раунд
         print("Попытки:", popitki)
         break 
     bukva_or_slovo = input("Введите букву или слово:").lower() #Ввод буквы или слова
-    if bukva_or_slovo == "":
+    if bukva_or_slovo == "": #исключение ввода без символов
         print("Мне кажется, или это не буква и не слово?")
         print("Слово:")
         print(*zvezdi, sep="")        
@@ -29,6 +30,7 @@ while True: #Раунд
         print("Попытки:", popitki)
         break
     elif bukva_or_slovo in random_slovo and bukva_or_slovo not in zvezdi: #Если игрок угадал букву
+        bukvi_vvod.append(bukva_or_slovo)
         print("Вы угадали!!!")
         for indexx in range(len(random_slovo)): #замена звёзд на буквы в шифре
             if bukva_or_slovo == random_slovo[indexx]:
@@ -48,6 +50,7 @@ while True: #Раунд
             print("!сдаться - СДАТЬСЯ")
             print("!правила игры - ПРАВИЛА ИГРЫ")
             print("!попытки - ПОПЫТКИ")
+            print("!буквы - введённые буквы")
         if bukva_or_slovo == "!попытки": #вывод попыток
             print(popitki)
         if bukva_or_slovo == "!правила игры": #вывод правил игры
@@ -56,9 +59,15 @@ while True: #Раунд
             print("Ваша задача отгадать слово")
             print("В один ход можно назвать букву или слово целиком")
             print("Игра не закончится пока вы не угадаете слово или пока вы не сдадитесь")
+        if bukva_or_slovo == "!буквы":
+            print(*bukvi_vvod)
     else: #если введена неправильная буква
-        print("Не угадали")
+        if bukva_or_slovo in bukvi_vvod:
+            print("Вы уже называли такую букву")
+            continue
         popitki += 1
+        print("Не угадали")
+        bukvi_vvod.append(bukva_or_slovo)
     print("Слово:")
     print(*zvezdi, sep="") #второй и последующий ввод шифра
     
