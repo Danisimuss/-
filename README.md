@@ -29,12 +29,12 @@
 GAME 'FIELD OF MIRACLES'
 
 **Description of the game**  
-This is my first Python game. It was created according to instructions of my computer science teachers. I’ve got 12 out of 12 points for it.
+This is my first Python game. It was created according to the instructions of my computer science teachers. I’ve got 12 out of 12 points for it.
 
 **Rules of the game:**  
 The word is hidden and encrypted with asterisks  
 Your task is to guess the word  
-In one move, you can print a letter or a whole word  
+In one move, you can type a letter or a whole word  
 The game will not end until you guess the whole word or until you give up  
 
 **COMMANDS:**  
