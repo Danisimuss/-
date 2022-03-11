@@ -26,7 +26,7 @@
 
 
 **English version:**  
-GAME 'FIELD OF MIRACLES'
+# GAME 'FIELD OF MIRACLES'
 
 **Description of the game**  
 This is my first Python game. It was created according to the instructions of my computer science teachers. I’ve got 12 out of 12 points for it.
